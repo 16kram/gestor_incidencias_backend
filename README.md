@@ -1,5 +1,5 @@
-Esto es una aplicación que realiza la función de servidor, está realizada con java, MySQL y SpringBoot, e implementa un gestor de incidencias para hacer el seguimiento de los mantenimientos integrales en edificios de oficinas.
+Esta aplicación, desarrollada con Java, MySQL y Spring Boot, actúa como servidor en un sistema de gestión de incidencias, diseñado para hacer el seguimiento de los mantenimientos integrales en edificios de oficinas.
 
-Utiliza REST para la comunicación y Tokens para la autenticación.
+La aplicación utiliza la arquitectura REST para la comunicación entre servicios y emplea Tokens para la autenticación, garantizando la seguridad en el acceso a los datos.
 
-Funciona junto al proyecto de página web 'gestor_incidencias_frontend'.
+Este servidor funciona en conjunto con el proyecto de página web 'gestor_incidencias_frontend', proporcionando la lógica de negocio y gestionando la interacción con la base de datos.
