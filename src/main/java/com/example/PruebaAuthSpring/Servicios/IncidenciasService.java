@@ -6,6 +6,7 @@ package com.example.PruebaAuthSpring.Servicios;
 import com.example.PruebaAuthSpring.Incidencias.EstadoIncidencia;
 import com.example.PruebaAuthSpring.Persistencia.Entidades.Incidencias;
 import com.example.PruebaAuthSpring.Persistencia.Repositorio.IncidenciasRepository;
+import com.example.PruebaAuthSpring.Persistencia.Repositorio.UserRepository;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,9 @@ public class IncidenciasService {
 
     @Autowired
     IncidenciasRepository incidenciasRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     //Crea una nueva incidencia
     public void altaIncidencia(Incidencias incidencias) {
@@ -60,10 +64,15 @@ public class IncidenciasService {
     }
 
     //Lista todas las incidencias
-    public List<Incidencias> listarIncidencias() {
-        return incidenciasRepository.findAll();
+    public List<Incidencias> listarIncidencias(String idUsuario) {
+        String rolUsuario = userRepository.findByUsername(idUsuario).getRole().toString();
+        if ("ROLE_ADMIN".equals(rolUsuario) || "ROLE_MAINTENANCE".equals(rolUsuario)) {
+            return incidenciasRepository.findAll();
+        } else {
+            return incidenciasRepository.findByIdUsuario(idUsuario);
+        }
     }
-    
+
     //Obtiene el estado de la incidencia 'FINALIZADA' , 'PENDIENTE', etc.
     public String obtenerEstado(Integer numIncidencia) {
         Incidencias incidencias = incidenciasRepository.getReferenceById(numIncidencia);

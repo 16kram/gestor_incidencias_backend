@@ -40,5 +40,7 @@ public class Incidencias {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EstadoIncidencia estado;// PENDIENTE - EN CURSO - FINALIZADA
+    @Column(nullable = false)
+    private String idUsuario;//Nombre de usuario para el listado de incidencias
 
 }

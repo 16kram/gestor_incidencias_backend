@@ -43,9 +43,9 @@ public class IncidenciasController {
     }
 
     //Lista todas las incidencias
-    @GetMapping("/listar")
-    public List<Incidencias> listarIncidencias() {
-        return incidenciasService.listarIncidencias();
+    @GetMapping("/listar/{idUsuario}")
+    public List<Incidencias> listarIncidencias(@PathVariable String idUsuario) {
+        return incidenciasService.listarIncidencias(idUsuario);
     }
 
     //Obtiene el estado de la incidencia 'FINALIZADA' , 'PENDIENTE', etc.
