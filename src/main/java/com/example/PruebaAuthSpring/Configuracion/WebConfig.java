@@ -23,7 +23,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost", "null") // Permite solicitudes de 'null'
+                //.allowedOrigins("https://localhost:8443", "https://estebanpa.ddns.net:8443","null") // Permite solicitudes de 'null'
+                .allowedOriginPatterns("*", "null")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);

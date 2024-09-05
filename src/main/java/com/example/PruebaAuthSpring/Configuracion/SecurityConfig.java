@@ -45,6 +45,7 @@ public class SecurityConfig {
                 .requestMatchers("/usuario/listar").hasRole("ADMIN")
                 .requestMatchers("/usuario/privado/**").hasRole("USER")
                 .requestMatchers("/usuario/publico/**").permitAll()
+                .requestMatchers("/usuario/creaadmin").permitAll()
                 .requestMatchers("/usuario/login").permitAll()
                 .requestMatchers("/incidencias/modificarestado/**").hasAnyRole("ADMIN", "MAINTENANCE")
                 .anyRequest().authenticated()

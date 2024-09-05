@@ -122,4 +122,10 @@ public class UsuariosController {
         return usuariosService.rolUsuario(usuario);
     }
 
+    //Crea un usuario administrador si no existe en la base de datos
+    @GetMapping("creaadmin")
+    public String creaAdministrador() {
+        return usuariosService.creaAdministrador();
+    }
+
 }
